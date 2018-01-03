@@ -55,6 +55,7 @@ public class Parity {
         parity.InitializeLookupTable();
         
         int input = Integer.parseInt(args[0]);
+
         int result;
 
         result = parity.XORCompute(input);
