@@ -10,7 +10,7 @@ public class Swap {
           int bit2 = (word >> j) & 1;
 
           if (bit1 != bit2) {
-             int bitmask = (1 << i) | (i << j);  
+             int bitmask = (1 << i) | (1 << j);  
             
              System.out.println("original :" + Integer.toBinaryString(word)); 
              System.out.println("bitmask  :" + Integer.toBinaryString(bitmask)); 
@@ -23,7 +23,7 @@ public class Swap {
       public static void main (String args[]){ 
             Swap swap = new Swap(); 
 
-            swap.SwapBits(200, 5, 3);
+            swap.SwapBits(4, 2, 31);
 
       }
 }
