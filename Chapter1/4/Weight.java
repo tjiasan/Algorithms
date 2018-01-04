@@ -23,20 +23,19 @@ public class Weight {
         
         int position;
 
-        /*
-        if (input == 0 || input == flip_mask) {
-            // input all 1s or all zeros;
-        }
-*/
-
-        //find least significant bit;
+       
+       //find least significant bit;
         int lsb = input & (input * -1);
 
         String hex = "FFFFFFFF";
         int flip_mask = (int) Long.parseLong(hex, 16);
 
+        if (input == 0 || input == flip_mask) {
+            // input all 1s or all zeros;
+        }
+
         int position_lsb = this.SingleOnes.get(lsb);
-       // int lsb_mask = this.AllOnes.get(position_lsb);
+    
         int lsb_mask = flip_mask << position_lsb;
 
         //find least significant zero;
@@ -52,15 +51,13 @@ public class Weight {
         System.out.println("pos lsz           : " + position_lsz);
 
         // work out logic here
-        // if lsb == 0 
+        // if lsb == 0, means there are leading 1s 1110111 for example, so we use lsz
         if (lsb == 0) {
             System.out.println("Position of swap  : " + position_lsz + " and  one before it" );
         } else {
+            //there are no leading 1s   100010, swap the lsb with one before it;
             System.out.println("Position of swap  : " + position_lsb + " and  one before it");
-        }
-        
-
-    
+        }       
     
     }
 
