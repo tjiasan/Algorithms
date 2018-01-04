@@ -1,4 +1,4 @@
-/*    Problem: Given an input in 64 bits, reverse the input as the output
+/*    Problem: Given an input in 64 bits, reverse the input as the output, must make sure all inputs and vars are 64 bits;
  *    Solution: Use a Lookup table to reverse bits at 16 bit blocks at a time;
  *              
  */
