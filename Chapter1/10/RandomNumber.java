@@ -13,7 +13,6 @@ public  class RandomNumber {
 
     public int pick_random (int lower, int upper) {
         
-
         Random randomNum = new Random();
         int outcomes = upper - lower + 1;
         int iterations = 0;
