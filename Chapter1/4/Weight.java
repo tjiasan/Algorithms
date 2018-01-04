@@ -4,9 +4,8 @@ a binary with the same number of 1s (same weight), but also has the lowest diffe
 
 Solution:
     1) Brute Force: O(n), loop through the whole 64 bits, and if find (01) or (10), swap the two bits
-    2) Smarter way: O(1), create two lookup tables:
-        first consisting of all combination of 1s (64 values),
-        second consisting of all combination of single 1 digits (64 values),
+    2) Smarter way: O(1), find least significant digit with input & -input, if lsb is at position 0, then find least significant zero,
+       how? flip everything using mask, and then repeat;
 
 */
 import java.util.HashMap;
