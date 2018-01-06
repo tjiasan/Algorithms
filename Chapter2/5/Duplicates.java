@@ -1,6 +1,8 @@
 /*
     Problem: Delete Duplicates from a sorted array in O(N) and O(1) space
-    Solution: 
+    Solution: keep track of unique and duplicate numbers, if it encounters  a unique integer, override the index of unique number.
+                Once i encounter the amount of duplicates, override evrtyrthing to zero;
+
 */
 
 import java.util.Arrays;
@@ -10,7 +12,7 @@ public class Duplicates {
 
         int duplicates = 0;
         int uniques = 0;
-        int current = -1;
+        int current = -1000;
 
         for (int i = 0; i < arr.length; i++){
 
@@ -25,7 +27,7 @@ public class Duplicates {
                 duplicates ++;
             }
 
-            if (i >= (arr.length -duplicates -1)){
+            if (i >= (arr.length - duplicates - 1)){
                 arr[i] = 0;
             }
 
