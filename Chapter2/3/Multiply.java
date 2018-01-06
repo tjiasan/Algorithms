@@ -1,6 +1,7 @@
 /*
 Problem: Multiply arbitrary precision integers;
-
+Solution: loop through lowest multiplier, 
+and add to result
 
 */
 import java.util.Arrays;
