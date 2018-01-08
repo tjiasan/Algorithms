@@ -1,3 +1,14 @@
+/*
+    Problem: Enumerate all prime number to limit that is given;
+    Solution: 1) Trial division approach: 
+                 Try to divide each number up to sqrt(n), where n is the number;
+              2) Sieve method :
+                 calculate multiples of each number starting from 2;
+                 optimizations: 1)  start from n ^ 2 (since everything before itself sieved out already by previous calcualtions 0 to n - 1)
+                                2)  increment by 2;
+
+*/
+
 
 import java.util.Arrays;
 public class Prime {
@@ -9,15 +20,20 @@ public class Prime {
         result[0] = false;
         result[1] = false;
 
-        for (int i = 2; i < limit; i++) {
+        //get rid of evens excluding 2
+        for (int n = 4; n <= limit; n+=2){
+            result[n] = false;
+        }
+
+        //everything else
+        for (int i = 3; i < limit; i+= 2) {
             if (result[i] == true){
-                int start = i * 2;
+                int start = (i * i);
                 for (int k = start; k <= limit; k += i){
                     result[k] = false;
                 }
             }
         }
-
         return result;
 
 
