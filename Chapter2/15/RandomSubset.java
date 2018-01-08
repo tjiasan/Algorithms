@@ -6,6 +6,11 @@
     Solution: use an inferior algorithm with hashtable for fun.
                 number 12 has O(k) solution and space already;
 
+                keep track of swaps in hashmap;
+                if get the same number
+                hashmap [number] set to i;
+                and hashmap [i] = hashmap[number];
+
 */
 import java.util.HashMap;
 import java.util.Random;
@@ -30,11 +35,9 @@ public class RandomSubset{
             if (seen.get(value) != null) {
                 int to_swap = seen.get(value);
                 arr = this.swap(arr, to_swap, i);
-                seen.put(value, i);
-                seen.put(i, to_swap);
+                seen.put(value, i);                
             } else {
                arr = this.swap(arr, value, i);
-               seen.put(i, value);
                seen.put(value, i);
             }
         }
