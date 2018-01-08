@@ -41,8 +41,9 @@ public class ApplyPermutation {
         for(int i = 0; i < arr.length; i++){
             if (order[i] < i) {
                 int location = order[order[i]];
-                arr = this.swap(arr, i , location);
+                arr = this.swap(arr, i , location);               
                 order[i] = location;
+                             
             } else {
                 arr = this.swap(arr, i , order[i]);
             }
@@ -72,7 +73,9 @@ public class ApplyPermutation {
 
         int [] arr =   {11, 6, 7, 8, 9, 10}; 
         int [] order = {5,  3, 0, 1, 2,  4};
-
+        
+        //it is possible if it's smaller that ti's swapped more than once, but not possible if larger and same;
+        //zero has been swapped twice
          System.out.println(Arrays.toString(order));
  
         //int [] result_find = ApplyPerm.apply_find_previous(arr, order);
