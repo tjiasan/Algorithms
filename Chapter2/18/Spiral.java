@@ -7,16 +7,39 @@
    left N -1 amount, 
    Up N-2 amount,
 
+   decrease n by 2;
    shift start to right by 1, repeat until 0 or 1,
    where if 1, just set
-                        
+
+  Variants :
+     --- generate a 2d nxn matrix where spiral order is (0 ... n); go through algorithm backwards, creating nxn matrix; (still same complexity)
+     --- m x n variant : (M is y and N is x)
+    1) compute order 
+       Go right N amount, 
+       Go down M -1 amount,
+       Go left N -1 amount, 
+       go Up m -2 amount, shift 1 right, (decrease m and n by 2) repeat until counter reach m x n
+    2) compute kth order of m x n in O (1) time                      
+
+        compute which level, (lowest level algo)
+        go through algorithm n steps
 
 */
 
 import java.util.Arrays;
 
 public class Spiral {
+    public int computeLowestLevel (int k , int m , int n){
+            int level = 0; 
+            int amount = 0;
 
+            while (amount <= k) {
+                amount += (m + n - 4 * level) * 2 - 4;
+                level ++;
+            }
+
+            return level - 1;
+        }
 
 
     public int[] computeOrder(int [] [] arr){
@@ -93,8 +116,10 @@ public class Spiral {
             {3, 4}
         };
 
-        int [] order = spiral.computeOrder(arr); 
+        //int [] order = spiral.computeOrder(arr); 
 
-        System.out.println(Arrays.toString(order));
+        int level = spiral.computeLowestLevel ( 15, 5 ,5 );
+        System.out.println(level);
+        //System.out.println(Arrays.toString(order));
     }
 }
