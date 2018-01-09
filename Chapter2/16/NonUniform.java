@@ -30,6 +30,7 @@ public class NonUniform {
        
         int sum = 0;
 
+        //for single calls
         for (int i = 0; i < probabilities.length; i++){
             sum += probabilities [i];
             probabilities [i] = sum;
@@ -41,12 +42,13 @@ public class NonUniform {
         int iterations = 0;
         int sumcopy = sum;
 
-        //figure out iterations
+ 
         while (sumcopy > 0){
             sumcopy >>= 1;
             iterations ++;
         }
 
+        //after this point, repeated calls may be repeated from this point;
         //generate a random number;
         while (true){
           
@@ -62,6 +64,7 @@ public class NonUniform {
             }      
         }
 
+        //can replace with binary search
         for (int i = outcomes.length -1; i >= 0; i--){
             if (result <= probabilities[i]){
                 location = i;
