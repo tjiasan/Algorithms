@@ -2,7 +2,10 @@
     Problem : Check whether a sudoku 2D array is valid,
               Check for Duplicates and empty boards (0);
 
-    Solution: Brute force approach          
+    Solution: Brute force approach         
+              Space Complexity sqrt (N) + sqrt(n); create subarrays + hashmap; where n is the elements in 2d array
+              Time Complexity (6N), checking rows (1.3N), Checking columns (2N), Checking subarrays (2N)
+              Optimization, check while creating subarrays (Reduce by 2N / constant)
 */
 import java.util.HashMap;
 import java.util.Arrays;
