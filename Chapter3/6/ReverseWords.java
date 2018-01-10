@@ -44,9 +44,13 @@ public class ReverseWords {
 
         //reverse words
         for (int n = 0; n < input.length; n ++){
-            if (input [n] == ' '){
-                input = this.reverseIndex(input, start, n -1);
+            if (input [n] == ' ' ){
+                input = this.reverseIndex(input, start, n - 1);
                 start = n + 1;
+            }
+
+            if (n == (input.length -1)){
+                input = this.reverseIndex(input, start, n);
             }
         }
 
@@ -57,7 +61,7 @@ public class ReverseWords {
     public static void main (String args[]){
         ReverseWords reverseWords = new ReverseWords();
 
-        String input = "bob is so good";
+        String input = "bobi is so good";
 
         char [] chars= input.toCharArray();
 
