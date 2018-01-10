@@ -1,11 +1,14 @@
 /*
 problem : rotate an array (n*n) by 90 degrees cw
 solution : work from outside in;
-           1) swap edges
-           2) swap corners
+           1) swap edges (3 loops)
+           2) swap corners (1 constant);
 
            OR
-           swap N-1 (edge +corner) , one at a time; (four 4 loops, same thing)
+
+           swap N-1 (edge +corner) for four loops;
+
+           if (m x n) array, need to initialize new array anyways, Just read and write correctly
 
 */
 

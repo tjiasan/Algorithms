@@ -21,9 +21,39 @@
        go Up m -2 amount, shift 1 right, (decrease m and n by 2) repeat until counter reach m x n
     2) compute kth order of m x n in O (1) time                      
 
-        compute which level, (lowest level algo)
-        go through algorithm n steps
+        Assuming N * N, the amount in each levels is defined by area of the inner square:
+        for example, n = 5 square has these inner squares
+        25 9 1  sq
+        5  3 1   n
 
+        to get the level then, you just sqrt(25 - k) :
+        e.g. 1 to 16  ===  3 to 5; //assign this to p
+             17 to 24  === 1 to 3;
+             25        === 1;
+
+             to get the level, if N is odd or %2 != 0, round up to the next odd number.
+             else round up to the next even number;
+
+             then L = (n-p)/2;
+
+        in case of m x n , divide by (m/n) before sqrt. 
+
+        e.g. 4x6 rectangle ;
+
+        24    6
+        4     2
+
+        similar to
+        16   4
+        4     2
+
+        4x6 = 24 = 4 *4 *1.5;
+
+        to get level of pos 31
+        32 - 31 = 1
+        1/ 1.5 
+
+        and then sqrt it, and round up;
 */
 
 import java.util.Arrays;
