@@ -298,7 +298,7 @@ class LinkedList {
         int length1 = 0;
 
         Node ptr = start;
-        
+
         while (ptr.data != limit){
             ptr = ptr.getLink();
             length ++;
@@ -309,8 +309,7 @@ class LinkedList {
             ptr1 = ptr1.getLink();
             length1 ++;
         }
-
-
+        
         ptr = start;
         ptr1 = start1;
 
