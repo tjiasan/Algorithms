@@ -1,17 +1,11 @@
-/*
-Problem: implement a pivot: given a linked list,
-         reorder the values < pivot before,
-         then pivot,
-         then values > pivot after
+import java.security.spec.EncodedKeySpec;
 
-Solution: reorder the list into 3 sublists, then recombine;
-         
-*/
+import javafx.scene.shape.Ellipse;
 
 /*
-    Problem: Given a node in a linked list, delete the node in O(1) time
+    Problem: Add list based integers where it starts from the least significant digits;
 
-    Solution: set the given node to the same data and link as the next one;
+    Solution: 
             
 */
 /* Class Node */
@@ -64,6 +58,18 @@ class LinkedList {
         size = 0;
     }
 
+
+    public Node getNextNode(){
+        if (start == null || current == null){
+            return null;
+        }
+
+        Node tmp = current;
+        current = current.getLink();
+        return tmp;
+    }
+
+
     public void insert (int val) {
         if (size == 0){
             this.insertAtStart(val);
@@ -81,6 +87,7 @@ class LinkedList {
         size ++;
         if (start == null) {
             start = nptr;
+            current = nptr;
             end = start;
         } else {
             nptr.setLink(start);
@@ -173,75 +180,87 @@ class LinkedList {
         System.out.print(ptr.getData());
     }
 
-    public void pivot (int k){
-
-        Node cursor = start;
-
-        Node less = null;
-        Node greater = null;
-        Node exact = null;
-
-        Node exactStart = null;
-        Node greaterStart = null;
-
-        while (cursor != null){
-            if (cursor.data < k){
-                if (less == null){
-                    start = cursor;
-                    less = cursor;
-                } else {
-                    less.setLink(cursor);
-                    less = cursor;
-                }
-
-            } else if (cursor.data == k){
-                if (exact == null){
-                    exact = cursor;
-                    exactStart = cursor;
-                } else {
-                    exact.setLink(cursor);
-                    exact = cursor;
-                }
-
-            } else {
-                if (greater == null){
-                    greater = cursor;
-                    greaterStart = cursor;
-                } else {
-                    greater.setLink(cursor);
-                    greater = cursor;
-                }
-            }
-
-            cursor = cursor.getLink();
-        }
-
-        less.setLink(exactStart);
-        exact.setLink(greaterStart);
-
-        greater.setLink(null);
-
-
-    }
-
+ 
 
 }
 
-public class Pivot {
+public class Addition {
+
+    public LinkedList addList (LinkedList a, LinkedList b){
+
+        LinkedList result = new LinkedList();
+
+        int data1 = 0;
+        int data2 = 0;
+
+        Node i = a.getNextNode();
+        Node j = b.getNextNode();
+        int carryover = 0;
+        while (true) {
+
+            if (i != null){
+                data1 = i.data;
+            } else {
+                data1 = 0;
+            }
+
+            if (j != null) {
+                data2 = j.data;
+            } else {
+                data2 = 0;
+            }
+
+            int sum = data1 + data2 + carryover;
+
+            if (sum > 9) {
+                carryover = 1;
+            } else {
+                carryover = 0;
+            }
+
+            int insert = sum % 10;
+
+            result.insert(insert);
+
+            if (i != null) {
+                i = a.getNextNode();
+            } 
+
+            if (j != null) {
+                j = b.getNextNode();
+            }
+
+            if (j == null && i == null && carryover == 0){
+                break;
+            }
+
+         }
+         return result;
+
+    }
 
     public static void main (String [] args){
 
         LinkedList list = new LinkedList();
+        LinkedList list1 = new LinkedList();
 
+        list.insert(1);
+        list.insert(9);
+        list.insert(8);
         list.insert(3);
-        list.insert(2);
-        list.insert(2);
-        list.insert(11);
-        list.insert(7);
         list.insert(5);
-        list.insert(11);
+
+        list1.insert(2);
+        list1.insert(3);
+        list1.insert(4);
+        list1.insert(2);
+        list1.insert(9);
         
-        list.pivot(7);
-        list.display();
+     
+        Addition add = new Addition();
+        LinkedList result = add.addList(list, list1);
+
+        result.display();
+    
     }
 }
