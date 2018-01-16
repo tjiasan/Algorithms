@@ -1,8 +1,8 @@
 
 /*
-    Problem: Given a node in a linked list, delete the node in O(1) time
+    Problem: Givven a single linked list, shift values by k amount, anything that spills over goes to the beginnign
 
-    Solution: set the given node to the same data and link as the next one;
+    Solution: 
             
 */
 /* Class Node */
@@ -164,11 +164,40 @@ class LinkedList {
         System.out.print(ptr.getData());
     }
 
+    public void shiftRight(int k){
+        //k  may be larger than n;
+        k %= size;
 
+        //copy start
+        Node first = start;
+
+        //iterate
+        Node ptr = start;
+        int iterations = size - k - 1;
+
+        for (int i = 0; i < iterations; i ++){
+            ptr = ptr.getLink();
+        }
+
+        //found end 
+        start = ptr.getLink();
+        ptr.setLink(null);
+
+        //re iterate from start until null
+        ptr = start;
+
+        while (ptr.getLink() != null){
+            ptr =  ptr.getLink();
+        }
+
+        //recombine list
+        ptr.setLink(first);
+
+    }
 
 }
 
-public class SingleLinkedList {
+public class ShiftByK {
 
     public static void main (String [] args){
 
@@ -179,7 +208,10 @@ public class SingleLinkedList {
         list.insert(3);
         list.insert(4);
         list.insert(5);
+        list.insert(6);
         
+        list.shiftRight(2);
 
+        list.display();
     }
 }

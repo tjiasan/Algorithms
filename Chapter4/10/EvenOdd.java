@@ -1,8 +1,19 @@
 
 /*
-    Problem: Given a node in a linked list, delete the node in O(1) time
+    Problem: Given a linked list reorder the odd elements (1,3,5) to the tail end of the list, and even(0,2,4) to begin;
 
-    Solution: set the given node to the same data and link as the next one;
+
+    Solution: Create a Second head/start and two iterations even = start, odd = start +1, and cursor;
+            if cursor encounters even: link  even iterator to cursor
+            if cursor encounters odd : link  odd iterator to cursor
+
+            continue until cursor == null;
+
+            set end of even linked list to start of odd, set end of odd list to null;
+
+            creates 0,2,4,1,3,5
+
+            complexity O(N) time O(1) space
             
 */
 /* Class Node */
@@ -164,22 +175,61 @@ class LinkedList {
         System.out.print(ptr.getData());
     }
 
+    public void evenOdd(){
+
+        Node cursor = start;
+
+        Node start1 = start.getLink();
+
+        Node list1  = start;
+        Node list2  = start1;
+
+        boolean even = true;
+
+        //skip 2
+        cursor = cursor.getLink();
+        cursor = cursor.getLink();
+
+        while (cursor != null){
+            if (even == true){
+                list1.setLink(cursor);
+                cursor = cursor.getLink();
+                list1 = list1.getLink();
+                even = false;
+
+            } else {
+                list2.setLink(cursor);
+                cursor = cursor.getLink();
+                list2 = list2.getLink();
+                even = true;
+            }       
+
+        }
+
+        list2.setLink(null);
+        list1.setLink(start1);
+
+    }
+
+
 
 
 }
 
-public class SingleLinkedList {
+public class EvenOdd {
 
     public static void main (String [] args){
 
         LinkedList list = new LinkedList();
 
+        list.insert(0);
         list.insert(1);
         list.insert(2);
         list.insert(3);
         list.insert(4);
         list.insert(5);
         
-
+        list.evenOdd();
+        list.display();
     }
 }

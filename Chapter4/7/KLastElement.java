@@ -1,3 +1,12 @@
+/*
+    Problem: Given a single link list, delete the k th from the last element of the list;
+             you do not know the length in advance;
+             Cannot assume it's possible to record length of the list
+
+    Solution: using two iterators spaced K length apart, iterate through the list until the next
+                one hits null;         
+*/
+
 
 /*
     Problem: Given a node in a linked list, delete the node in O(1) time
@@ -164,11 +173,37 @@ class LinkedList {
         System.out.print(ptr.getData());
     }
 
+    public void deleteConst(Node d){
 
+        Node next = d.getLink();
+
+        d.setData(next.data);
+        d.setLink(next.link);
+
+    }
+
+    public void deleteKLast(int k){
+
+        Node i = start;
+        Node j = start;
+
+        for (int n = 0; n < k; n++){
+            j = j.getLink();
+        }
+
+        while (j.getLink() != null){
+            i = i.getLink();
+            j  = j.getLink();
+        }
+
+        this.deleteConst(i);
+
+    }
 
 }
 
-public class SingleLinkedList {
+public class KLastElement {
+
 
     public static void main (String [] args){
 
@@ -179,7 +214,9 @@ public class SingleLinkedList {
         list.insert(3);
         list.insert(4);
         list.insert(5);
-        
+
+        list.deleteKLast(2);
+        list.display();
 
     }
 }

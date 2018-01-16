@@ -1,8 +1,13 @@
 
 /*
-    Problem: Given a node in a linked list, delete the node in O(1) time
+    Problem: Given a sorted linked list,  delete duplicates
 
-    Solution: set the given node to the same data and link as the next one;
+    Solution: Set two Node variables, last/previous = start, value = start.data and current = start + 1
+
+    iterate through current, if it's greater than value :
+                        1) set link of last to current;
+                        2) set last to current ;
+                        3) set value to current.data;
             
 */
 /* Class Node */
@@ -163,12 +168,34 @@ class LinkedList {
         //print last one;
         System.out.print(ptr.getData());
     }
+    
+     public void deleteConst(Node d){
 
+        Node next = d.getLink();
 
+        d.setData(next.data);
+        d.setLink(next.link);
 
+    }
+    public void deleteDuplicates(){
+
+        Node ptr = start.getLink();
+        Node last = start;
+        int val = start.data;
+
+        while (ptr.getLink() != null){ 
+            if (ptr.data > val){
+                last.setLink(ptr);
+                val = ptr.data;
+                last = ptr;
+            }
+            ptr = ptr.getLink();          
+
+        }
+    }
 }
 
-public class SingleLinkedList {
+public class RemoveDuplicates {
 
     public static void main (String [] args){
 
@@ -179,7 +206,12 @@ public class SingleLinkedList {
         list.insert(3);
         list.insert(4);
         list.insert(5);
-        
-
+        list.insert(5);
+        list.insert(5);
+        list.insert(5);
+        list.insert(7);    
+        list.insert(8);  
+        list.deleteDuplicates();
+        list.display();
     }
 }

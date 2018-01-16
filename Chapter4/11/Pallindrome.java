@@ -1,9 +1,10 @@
 
 /*
-    Problem: Given a node in a linked list, delete the node in O(1) time
+    Problem: Givena single linked list, determine if the values are pallindromic
 
-    Solution: set the given node to the same data and link as the next one;
-            
+    Solution: reverse the second half of the sublist, and iterate through both list
+                at the same time;
+                Complexity O(N) time O(1)space
 */
 /* Class Node */
 
@@ -164,11 +165,59 @@ class LinkedList {
         System.out.print(ptr.getData());
     }
 
+    public boolean isPallindrome(){
+
+        boolean pallindrome = true;
+
+        int sublist_start = size/2;
+
+        Node reverse_start = null;
+        Node cursor = start;
+
+        for (int i = 0; i < sublist_start; i ++){
+            cursor = cursor.getLink();
+        }
+
+        //ongoing reverse list
+        Node reverse = cursor;       
+        
+        Node rev_pointer = reverse.getLink();
+        reverse.setLink(null);
+
+        while (true){
+            Node next = rev_pointer.getLink();
+            rev_pointer.setLink(reverse);
+            
+            reverse = rev_pointer;
+            
+            if (next == null){
+                break;
+            } else {
+                rev_pointer = next;
+            }
+        }
+
+        //compare
+        sublist_start --;
+        cursor = start;
+        
+        for (int i = 0; i < sublist_start; i ++){
+            if (rev_pointer.data != cursor.data){
+                return false;
+            }
+            rev_pointer = rev_pointer.getLink();
+            cursor = cursor.getLink();
+        }
+
+        return pallindrome;
+
+    }
+
 
 
 }
 
-public class SingleLinkedList {
+public class Pallindrome {
 
     public static void main (String [] args){
 
@@ -177,9 +226,13 @@ public class SingleLinkedList {
         list.insert(1);
         list.insert(2);
         list.insert(3);
-        list.insert(4);
-        list.insert(5);
-        
+        list.insert(2);
+        list.insert(1);
+
+        boolean is_pallindrome = list.isPallindrome();
+        list.display();
+
+        System.out.println(is_pallindrome);
 
     }
 }
