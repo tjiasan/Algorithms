@@ -34,16 +34,24 @@ class Node {
 class Stack {
 
     protected Node start;
+    public int size;
+
+    public Stack () {
+        size = 0;
+        start = null;
+    }
+
 
     public void push (int data){
-        Node push = new Node(data, start);
 
+        Node push = new Node(data, start);
         start = push;
     }
 
     public Node pop (){
-        Node pop = new Node(start.data, null);
 
+        Node pop = new Node(start.data, null);
+        
         start = start.getLink();
 
         return pop;

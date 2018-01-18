@@ -183,8 +183,7 @@ class LinkedList {
     public void reverse(){
         if (size <= 1){
             return;
-        }      
-     
+        }          
 
         Node previous = start;
         Node cursor = start.getLink();
