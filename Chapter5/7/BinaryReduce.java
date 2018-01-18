@@ -1,3 +1,22 @@
+/*
+    Problem: Given a binary tree, 
+            decompose the tree into a list of integers for each level from left to right
+            e.g. [  [1], [2, 3], [3, 4 ,4] ]
+
+    Solution: 
+        Set Queue1 with parent node;
+
+        iterate through Queue1:
+        Use  Queue2 to add children nodes from left to right, while flushing parent into
+                a newly created array (with known size);
+
+        set the Queue1 = Queue2;
+            
+        use table doubling to dynamicalyl resize the array;
+        Time Complexity O(N), Space O(N) for the result array, OR O(M) if only considring level depth;
+*/
+
+
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -175,12 +194,15 @@ public class BinaryReduce {
     public int [] [] reduce (BinaryNode head){
 
         Queue level = new Queue();
-
         level.insert(head);
 
         int current_level = 0;
+
+        //initial size of result
         int level_max = 2;
         int [] [] result = new int[level_max][0];
+
+        
         while (level.size > 0){
             Queue next_level = new Queue();
             int [] result_level = new int[level.size];            
