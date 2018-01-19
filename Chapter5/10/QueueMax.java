@@ -1,3 +1,18 @@
+/* Problem: implement max api
+    Solution: Keep a running max and its index every time enqueued is called O(1) operations;
+
+            calling max fcn is O (1) because it's stored;
+
+
+            if dequed and max is dequeued, then find max O(N);
+
+     Alt Solution: cache with sunset view problem, from max to tail with a stack;
+                  insertions, log (m) binary search of cache (implemented with array), where cache length is m; 
+
+                  worst case: insertions O(log n), max O(1), dequeue O(1); Space O(N);
+*/
+
+
 class Node {
     protected int data;
     protected Node link;
@@ -8,6 +23,7 @@ class Node {
 
     public Node (int d, Node l){
         data = d;
+
         link = l;
     }
 
