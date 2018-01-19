@@ -161,6 +161,7 @@ class Queue {
 
                
         end.setLink(ins);
+        end = ins;
         
         size ++;
     }
@@ -241,9 +242,9 @@ public class BinaryReduce {
             }
             
         }
-
+        System.out.println(Arrays.toString(result[0]));  
         System.out.println(Arrays.toString(result[1]));  
-
+        System.out.println(Arrays.toString(result[2])); 
 
       
         return result;
