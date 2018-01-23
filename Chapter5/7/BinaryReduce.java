@@ -245,7 +245,7 @@ public class BinaryReduce {
         System.out.println(Arrays.toString(result[0]));  
         System.out.println(Arrays.toString(result[1]));  
         System.out.println(Arrays.toString(result[2])); 
-
+        System.out.println(Arrays.toString(result[3])); 
       
         return result;
 
@@ -257,13 +257,20 @@ public class BinaryReduce {
 
         BinaryTree input = new BinaryTree();
 
+
+
+
+        input.insert(10);
+
         input.insert(5);
         input.insert(3);
-        input.insert(4);
-        input.insert(6);
         input.insert(7);
-        input.insert(8);
+        input.insert(6);
 
+
+        input.insert(15);
+        input.insert(12);
+        input.insert(17);
 
         int[][] result = bin.reduce(input.head);
     }

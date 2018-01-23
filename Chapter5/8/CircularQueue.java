@@ -11,7 +11,7 @@
 
 
             if end == size,
-            copy to new table twice the size;
+            copy to new table twice the size; 
 
 */
 

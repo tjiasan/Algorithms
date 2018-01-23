@@ -5,11 +5,18 @@
 
 
             if dequed and max is dequeued, then find max O(N);
+            Space O (1);
 
-     Alt Solution: cache with sunset view problem, from max to tail with a stack;
-                  insertions, log (m) binary search of cache (implemented with array), where cache length is m; 
 
+     Alt Solution: cache with sunset view problem, from max to tail with a doubly linked list, except same values also gets enqueued;
+                  insertions, log (m) binary search of cache (implemented with array) or O(M) if linkedlist implementation, where cache length is m; 
+                  set the new node link to null; 
+
+                  if max is dequed, dequeue cache;
+                
                   worst case: insertions O(log n), max O(1), dequeue O(1); Space O(N);
+
+                  implementation: doubly linked list for cache, 
 */
 
 
