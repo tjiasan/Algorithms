@@ -59,25 +59,26 @@ public class Inorder {
     void iterative (Node head){
         Stack <Node> left = new Stack<Node>();
 
-        while (left.empty() && head.getRight() == null){
+        while (true){
 
             while (head.getLeft() != null){
                 Node tmp = new Node(head.getData(),null, head.getRight());
                 left.push(tmp);
+                head = head.getLeft();
             }    
 
             System.out.println(head.getData());
 
+            if (left.empty() && head.getRight() == null){
+                break;
+            }
 
             if (head.getRight() != null){
                 head = head.getRight();
             } else {
                 head = left.pop();
             }
-
-
         }
-
 
     }
 
