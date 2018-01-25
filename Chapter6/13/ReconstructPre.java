@@ -1,4 +1,20 @@
+/*Problem: given an array with processing order of pre-order, where nulls are
+encountered nulls, reconstruct the array
 
+    Solution:   Going from back to front:
+                Construct Linear Tree, 
+                keep track of lowest available null right, and level (depending how many nulls before int)
+
+            recurse leftover array, and attach to lowest level available,
+                while attaching, modify lowest level avail;
+
+                Where B is the Number of linear branches === number of leafs,
+                Complexity: O(N), Space O(B); //space storing 1 integer for every leaf;
+
+
+
+
+*/
 
 
 class Node {
