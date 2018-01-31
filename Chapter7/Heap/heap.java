@@ -84,6 +84,8 @@ class Heap {
         }
     }
 
+    //if a tree is a heap except for i;
+    // use max heapify
     public static void maxHeapify(int[] arr, int n, int i){
      
         // Find largest of node and its children
@@ -111,6 +113,14 @@ class Heap {
             arr[i] = temp;
             maxHeapify(arr, n, max);
         }
+    }
+
+    public void build_max_heap (int [] arr){
+
+        for (int i = arr.length/2; i < 0 ; i --){
+            this.maxHeapify(arr, arr.legnth, i);
+        }
+
     }
 
     public int Peek (){
