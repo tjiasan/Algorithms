@@ -39,7 +39,10 @@
             
             break if right - left distance = 1 or less;
 
-
+     VARIANT:  if contain DUPLICATES:
+                if contain duplicates a[k] = n
+                everything in between k to n is impossible;
+                a[n + 1] ... a[k] not possible;
 */
 
 
