@@ -42,7 +42,6 @@ Solution: Since the elements is distinct,
         whereas there would not be a valid answer with mine
         Also can't do repeated elements in query;
 
-
      
 */
 
