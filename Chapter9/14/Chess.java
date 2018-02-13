@@ -44,6 +44,14 @@ Solution: because it's 32 bit system/ 64 bit system,
 
         Collision = 4;
         Space O(8);
+
+
+        Book answer:
+        Random 64 bit integers for all 13 values of board;
+        and simply XOR all values to get hash;
+
+
+
 */
 
 import java.util.HashMap;
