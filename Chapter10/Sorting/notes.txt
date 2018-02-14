@@ -1,0 +1,16 @@
+Heapsort, merge sort, quicksort
+
+heapsort: in place but not stable, 
+merge sort is stable but not in place 
+quicksort runs O(N^2) worst time
+
+An in place sort is one that uses O(1) space,
+ stable is where the entries which are equal appear in their original place. 
+
+for entries less than 10, insertion sort is superior, 
+
+if k elements away, min heap, 
+if small number of keys, counting sort; counting elements less than it,
+BST (store equal elements in linked list), and in order traversal,  
+
+radix sort: numerical attreibutes
