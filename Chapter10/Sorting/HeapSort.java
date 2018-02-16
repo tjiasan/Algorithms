@@ -33,6 +33,8 @@ public class HeapSort {
             heapSize = array.length;
         }
 
+        //max heapify is recursive, calls max heapify on all its children, because a binary tree
+        //children are at most 2x size of current n,
         for(int i = heapSize/2; i > 0; i--) {
             maxHeapify(array, i, heapSize);
         }
