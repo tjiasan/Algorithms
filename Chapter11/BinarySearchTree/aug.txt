@@ -1,0 +1,26 @@
+BST augmentations:
+
+Node {
+    height
+    size: 
+}
+
+
+size makes it easy to know elements less than k;
+
+e.g.
+     A(40)
+    /   \ 
+  B(7)  C(20)
+
+  if want to lookup something in C subtree,
+
+  Add size from B(7) + 1(A)
+
+  And recurse C with size
+
+
+  if want to know elements between range A to B
+  find elements less than B and elements less than A
+
+  B -A is the answer
