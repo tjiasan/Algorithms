@@ -23,13 +23,13 @@ public  class RandomNumber {
         while (outcome_copy > 0) {
             outcome_copy >>= 1;
             iterations ++;
-        }       
+        }   // figuring out log2 base     
         
         while (true) {
             for (int i = 0 ; i < iterations; i++){
                int flip_mask =  randomNum.nextInt(2) << i;
                result |= flip_mask;
-            }
+            } // generate a random integer, flipping bits 0 or 1 randomly
             if (result < outcomes) {
                 break;
             } //try again

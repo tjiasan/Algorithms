@@ -1,6 +1,8 @@
 /*    Problem: Given an input in 64 bits, reverse the input as the output, must make sure all inputs and vars are 64 bits;
  *    Solution: Use a Lookup table to reverse bits at 16 bit blocks at a time;
- *              
+ *      1) Extract 16 bits with bitmask FFFF, bitshift input and AND bitmask;
+ *      2) use lookup table, initialized by swapping every bit with two pointers from edge to center
+ *                  
  */
 import java.util.HashMap;
 

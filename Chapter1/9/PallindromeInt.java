@@ -6,6 +6,10 @@ Solution: Reverse the digits and put it in an arraylist.
           Iterate through n/2 times starting from the last element of the array list and the first (2 pointers);
 
           Alternative: use base log10 to extract most significant digit, divide subtract, compare, repeat
+
+          e.g 500, 2.69 for its base 10 
+            divide by 100, modulo 10 to extract 5
+
 */
 import java.util.*;
 public class PallindromeInt {

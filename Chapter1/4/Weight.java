@@ -4,8 +4,16 @@ a binary with the same number of 1s (same weight), but also has the lowest diffe
 
 Solution:
     1) Brute Force: O(n), loop through the whole 64 bits, and if find (01) or (10), swap the two bits
-    2) Smarter way: O(1), find least significant digit with input & -input, if lsb is at position 0, then find least significant zero,
+   
+    multiply by -1 is O(n);
+    2) Smarter way: O(1), find least significant bit with input & -input, if lsb is at position 0, then find least significant zero,
        how? flip everything using mask, and then repeat;
+
+
+      initialize Hashtable to get position out of a word with a single 1 bit e.g. 000100
+      if position of the least significant bit is not the first, e.g. 0010, then swap lsb and the zero before
+
+      else, flip all the bits, find least significant bit again, e.g. 0011 to 1100, and swap lsb and the zero before 
 
 */
 import java.util.HashMap;
@@ -35,10 +43,10 @@ public class Weight {
 
         int position_lsb = this.SingleOnes.get(lsb);
     
-        int lsb_mask = flip_mask << position_lsb;
+        //int lsb_mask = flip_mask << position_lsb;
 
         //find least significant zero;
-        int all_flip = input ^ flip_mask & lsb_mask;
+        int all_flip = input ^ flip_mask; //& lsb_mask;
         
         int lsz = all_flip & (all_flip * -1);
         int position_lsz = this.SingleOnes.get(lsz);

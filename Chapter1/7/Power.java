@@ -20,7 +20,7 @@ public class Power {
             if ((b & 1) == 1) {
                 power *= current; 
             }
-            current = current*current;
+            current = current*current; 
             b >>= 1;
         }
         System.out.println(power);

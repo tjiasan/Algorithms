@@ -1,4 +1,11 @@
+/* design an algorithm such that
+    a > b < c > d < e
 
+   solution: O (N) algorithm :
+   
+    a > b correct ? if not swap; 
+
+*/
 import java.util.Arrays;
 
 public class Alteration {

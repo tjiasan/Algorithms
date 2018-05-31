@@ -11,6 +11,7 @@
                 swap with 3
                 {6, 2, 3, 5, 4, 1, 0}
               3) The prefix is the same, since the suffix is in decreasing order, the next smallest would be the suffix in increasing order (i.e. reverse the swapped suffix);
+               {6, 2, 3, 0, 1 ,4, 5}
 
     variant : (find decreasing order):
              1) from left to right, find pivot point, where n + 1 decreases

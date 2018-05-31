@@ -1,6 +1,7 @@
 /*    Problem: Swap bits inside a 64 bit word given two indexes
  *    Solution: 
- *              extract bits, if different flip using bitmask
+ *              extract bits (AND), if different flip using bitmask (1 bitshift)
+ *               flip using XOR
  */
 
 public class Swap {

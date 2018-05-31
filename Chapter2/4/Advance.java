@@ -8,7 +8,7 @@ Solution: use max advance for each element of an array;
 if want to know min steps, survey max reach of within chosen step element, and reiterate:
 e.g. 
  from arr[0], arr[1] has max reach, 
- from arr[1], re-iterate to see what has max reach;
+ from arr[1], iterate forward to reach of arr[1] to see what has max reach;
 
 */
 

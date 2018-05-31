@@ -4,10 +4,10 @@
 
     Problem: return a subset k of n with uniform probability
     Solution: use an inferior algorithm with hashtable for fun.
-                number 12 has O(k) solution and space already;
+                problem 12 has O(k) solution and space already;
 
                 keep track of swaps in hashmap;
-                if get the same number
+                if get the same number, to keep it uniform: 
                 hashmap [number] set to i;
                 and hashmap [i] = hashmap[number];
 

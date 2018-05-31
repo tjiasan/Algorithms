@@ -11,17 +11,18 @@ public class Duplicates {
     public int [] DeleteDup (int [] arr) {
 
         int duplicates = 0;
-        int uniques = 0;
-        int current = -1000;
+        int uniques = 1; //keep track of position
+        int current = arr[0];
 
-        for (int i = 0; i < arr.length; i++){
+        for (int i = 1; i < arr.length; i++){
 
             if (arr[i] > current) {
                 current = arr[i];            
 
                 if (i != uniques) {
                     arr[uniques] = arr [i];
-                }
+                }// else leave alone
+
                 uniques++;
             } else {
                 duplicates ++;
@@ -39,7 +40,7 @@ public class Duplicates {
     public static void main (String args[]) {
         Duplicates duplicate = new Duplicates();
 
-        int [] arr = { 1, 2, 2, 3, 3, 3, 4, 4, 5};
+        int [] arr = { 1, 2, 2, 3, 3, 3, 4, 4, 5, 6};
         int [] result = duplicate.DeleteDup(arr);
 
          System.out.println(Arrays.toString(result));

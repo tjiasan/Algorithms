@@ -10,6 +10,13 @@ Solution: 1) brute force: create 3 sub arrays, put in appropriate order
                      left pointer : keep iterating until encounter more
                      both pointers : first swap all equal to first/last element depending on pointer(and index)
                      after done, swap back the equals;
+                     NOTE: Order is not maintained within groups!! 
+                    e.g. first pass:
+                    pivot 3:
+                    3 1 2 1 1 5 4 4 3
+
+                    1 1 2 1 3 3 4 4 5, after swaps, still partitioned correctly!
+                
 
                      Complexity O(2N); Space O(1);
 

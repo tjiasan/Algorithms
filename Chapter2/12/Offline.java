@@ -1,8 +1,9 @@
 /*
     Problem: From An array of distinct users, create a subset k, where each user is equally likely to be in the subset
 
-    Solution: Pick a random number from 0 to n, swap that user n to the rest,
-              Pick a random number from 0 to n-1, swap, repeat until k
+    Solution: Pick a random number from 0 to n, swap that n with random number, copy n to result array
+              Pick a random number from 0 to n-1, swap, 
+              repeat until o to n - k
 
 */
 import java.util.Arrays;

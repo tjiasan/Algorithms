@@ -23,9 +23,9 @@ public class Multiply {
           int current_y = copy_y & 1;
 
         
-          //use xor to calculate current bit 1 or 0; 111 = 1, 110 = 0, 001 = 0, 0 = 0
+          //use xor to calculate current bit 1 or 0; 111 = 1, 110 = 0, 001 = 1, 0 = 0
           if ((current_sum ^ current_y ^ carryover) == 1){
-              result = result | flipmask;
+              result = result | flipmask; // make to 1
           } 
           
           //calculate carryover;
@@ -58,8 +58,8 @@ public class Multiply {
                 sum = this.Sum(sum, b);
             }
 
-            a >>= 1;
-            b <<= 1;
+            a >>= 1; // if bit present detector;
+            b <<= 1; //multiply by 2
         }
 
         return sum;

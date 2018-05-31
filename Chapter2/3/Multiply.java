@@ -1,7 +1,9 @@
 /*
 Problem: Multiply arbitrary precision integers;
 Solution: loop through lowest multiplier, 
-and add to result
+    Keep track of the offsets, to figure out the 10 ^ offset of the multiplication product
+    initialize zero array of the mid result
+    and add product to final result;
 
 */
 import java.util.Arrays;

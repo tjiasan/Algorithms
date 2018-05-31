@@ -3,6 +3,10 @@
     Solution: Keep track of negative movements within  days reaching to the max profit, and keep track of two max profits ,
              If breaking up one large maximum profits results in a larger profit than the two original ones, do that instead;
 
+
+             2N solution: 1) run buysell once, get biggest, 
+                         2) run buysell once inside biggest window,
+                         3) run buysell once outside biggest window, 
 */
 
 

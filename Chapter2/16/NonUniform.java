@@ -63,7 +63,8 @@ public class NonUniform {
                 break;
             }      
         }
-
+          
+        // figure out where the number lies within the outcome sums. 
         //can replace with binary search
         for (int i = outcomes.length -1; i >= 0; i--){
             if (result <= probabilities[i]){
