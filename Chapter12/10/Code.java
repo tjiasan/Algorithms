@@ -1,4 +1,25 @@
+/*
+    Problem: solve gray code, 
+            find permutations of 2 ^ n -1 elements, of 0, 1 ,2 ... n-1;
+            such that they only differ by 1 bit from array position a to a + 1;
 
+    Solution: recursive, mod 1, test if already present, recurse if present
+
+     Actual Problem:
+            Return 1 single permutation!
+            
+      actual solution:
+      
+      prepend 0 to  previous n- 1 solution + 1 to previous n-1 solution reversed;
+
+      e.g n =1  is
+
+      1 , 0   n = 1
+
+      01, 00, 10, 11 n= 2;
+
+      001, 000, 010, 011 + 111, 110, 100, 101   n =3
+*/
 
 import java.util.HashMap;
 import java.util.Arrays;
