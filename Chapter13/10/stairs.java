@@ -13,6 +13,40 @@
             2 double
             etc...
 
+    Solution: 
+        recompose arrays 1 longer at a time from the previous result
+
+        e.g. 
+        length = 1
+
+        5
+
+        length = 2
+        4 1
+        3 2
+        2 3
+        1 4
+
+
+        length = 3
+        shift previus array from 1 by 1 to the right;
+        (use first number, decompose like abobe)
+
+        3 1 1
+        2 2 1
+        2 1 2
+        1 3 1  // if 1 ignore
+        2 1 1
+        1 2 1 // ignore
+        1 1 3 // ignore
+
+        length = 4
+        2 1 1 1
+        1 2 1 1 
+        1 1 1 2
+        1 1 2 1 
+              
+
 
 */
 import java.util.LinkedList;
