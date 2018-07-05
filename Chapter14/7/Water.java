@@ -24,6 +24,18 @@
             thus O(dlogd + n) time complexity because of sorting,
             and O(d) space; where d is distinct elements 
 
+     Solution 2:
+        dual pointer start from both ends;
+        compare candidate pointers       
+
+        store candidate pointer via linkedlist
+        
+        because while
+        if A[0] > A[1],
+        A[1] can be taken out of consideration
+        the opposite isn't true
+
+    
 
 
 */
@@ -104,8 +116,40 @@ public class Water {
             prev = current;
         }
 
-        System.out.println(index1);
-        System.out.println(index2);
+        //System.out.println(index1);
+       // System.out.println(index2);
+    }
+
+    public void biggest2(int[] arr){
+
+        int index1 = 0;
+        int index2 = arr.length - 1;
+        int max_volume = Math.min(arr[index1], arr[index2]) * (index2- index1);
+
+        int i = 1;
+        int j = index2 - 1;
+
+        while (i < j){
+
+
+            if (Math.min(i, index2) * (index2 - i) > max_volume ){
+                max_volume = Math.min(i, index2) * (index2 - i);
+                index1 = i;
+            }          
+
+            if (Math.min(j, index1) * (j - index1) >= max_volume ){
+                max_volume = Math.min(j, index1) * (j-  index1);              
+                index2 = j;
+            }
+
+            if (Math.min(i, j) * (j - i) > min_volume ){
+                max_volume = Math.min(i, j) * (j - i);
+                index1 = i;
+                index2 = j;
+            }
+
+        }
+
     }
 
 
