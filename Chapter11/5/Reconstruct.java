@@ -44,7 +44,7 @@ import java.util.Stack;
 
 public class Reconstruct {
 
-
+ 
     public void postorder (Node root){
         if (root == null){
             return;
@@ -108,9 +108,9 @@ public class Reconstruct {
     }
 
     public Node reconstructPost (int [] arr){
-        int smallest = 2147483647;
+        int max = 2147483647; //max
         pos = arr.length -1;
-        return this.recursePost(arr, smallest);
+        return this.recursePost(arr, max);
 
     }
 

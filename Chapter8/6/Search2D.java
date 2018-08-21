@@ -2,7 +2,7 @@
         find if an integer is in the array
 
    Solution: Crawl Throug the 2D array
-                 (Start from top right, go left until can't, then go down )
+                 (Start from top right, go left until next int is lower, then go down one level)
 
                  Complexity O(M + N);
 

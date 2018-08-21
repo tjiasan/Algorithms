@@ -222,7 +222,7 @@ public class FindNext {
                 ptr = ptr.right; 
 
             } else {
-                result = ptr.data;
+                result = ptr.data; //parent
                 ptr = ptr.left;              
             }
         }

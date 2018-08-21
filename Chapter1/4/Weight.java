@@ -13,7 +13,7 @@ Solution:
       initialize Hashtable to get position out of a word with a single 1 bit e.g. 000100
       if position of the least significant bit is not the first, e.g. 0010, then swap lsb and the zero before
 
-      else, flip all the bits, find least significant bit again, e.g. 0011 to 1100, and swap lsb and the zero before 
+      else, flip all the bits, find least significant bit again, e.g. 0011 to 1100, and swap lsz and the one before 
 
 */
 import java.util.HashMap;

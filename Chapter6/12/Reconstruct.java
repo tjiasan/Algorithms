@@ -3,14 +3,46 @@
     reconstruct a binary tree
   Solution v1:
 
-    Construct from pre-order sequence:
-        1) start from head, go all the way left, and right recurse
-        2) Left of head is next pre-order, right of head is
-            inorder right of head till end,
-        2) keep going until i is start of pre-order;
-        
-     Complexity: 
-                O(N ^2) time (improved in v2 with hash), space O(H);   
+
+    Preorder: 314,6,217,28,0,561,3,17,7,1
+    InOrder: 28,271,0,6,561,17,3,314,7,1
+
+    Divide and conquer algo:
+    we know that 314 is the head;
+
+    from inorder we know that  (since left, visit, right)
+    28,271,0,6,561,17,3,   314   ,7,1
+    left of head                  right of head
+
+    extracting from preorder
+    6,217,28,0,561,3,17           7, 1
+    left of head                  right of head  
+    since preorder is left first then right, and amount should be the same!
+
+    thus recurse right of head with ({7,1}, {7,1})
+
+    and reurse left of head with ({6,217,28,0,561,3,17} and {28,271,0,6,561,17,3})
+
+    OR
+
+    for left, 
+    we know that 28 is the last in the left chain
+
+    so we can just iterate 
+
+    6, with right of 6 {561,17,3}, {561,3,17})
+
+    217, with right of 271 ({0}, {0})
+
+    and 28 left is null with right of 28 ({}, {});
+
+    
+    extracting from inorder backwards, starting from the end to head, skipping the head
+
+    eactracting from preorder backwards, starting from end (same count as inorder);
+
+
+    Complexity O(N)
 
 */
 

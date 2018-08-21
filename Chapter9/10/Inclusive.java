@@ -1,15 +1,22 @@
 /* Problem: 
     Find the longest length
     in an array such that
-    if a = -2 and b = 3;
-    there are elements from -2 and 3 in the array;
-    
+    there are all elements from a to b in them;
+    e.g.
+    int [] input  ={
+            3, -2, 7, 9, 8, 2, 0 ,-1, 5, 1
+        };
+      largest complete subarray = 
+      {-2, -1, 0, 1, 2, 3};
+
+      so should return 6;
     
     Soluton :
             1) No extra space, sort + iterate, Complexity O(nlogn)
 
+
             2) load everything(Nodes) to hashtable;
-                Construct Nodes in LinkedList;
+                and in in LinkedList; (used to quickly delete processed items)
 
                 Insert = O(1);
                 Find = O(1);
@@ -18,17 +25,22 @@
 
                 O(N);
 
-                poll linked list, 
-                    iterate forwards through hashmap,
-                    if found, remove in hashmap and linkedlist,
-                        size ++
+                Iterate through linkedlist {
+                    poll linked list, 
 
-                    iterate backwards through hashmap,
-                        if found, remove in hashmap and linkedlist
-                        size ++
+                        iterate forwards from item using hashmap,
+                        if found, remove in hashmap and linkedlist,
+                            size ++
 
-                compare size,    
-                keep going until linked list is zero
+                        iterate backwards from item using hashmap,
+                            if found, remove in hashmap and linkedlist
+                            size ++
+
+                    compare size,    
+                    keep going until linked list is zero
+                }
+
+
 
 
                 Time O(2N), Space O(2N);
@@ -127,6 +139,7 @@ import java.util.HashMap;
             int data = polled.data;
             int start= polled.data;
          
+            //crawl right
             while(exists.get(data + 1) != null){
                 data ++;
                 linked_list.remove(exists.get(data));
@@ -136,6 +149,7 @@ import java.util.HashMap;
 
             data = start;
            
+            //crawl left
             while (exists.get(data -1) != null){
                 data --;
                 linked_list.remove(exists.get(data));

@@ -46,8 +46,14 @@
 
             altSolution: 
                 use i and j,
-                advance j until covers everything, use hashtable to keep track
-                advance i until uncovered, subtract hashtable, uncovered - 1 is distance,
+
+                i = 0;
+                j = 0;
+
+                advance j until covers everything, use hashtable to check text,
+                and keep track of keywords encountered amount (because may be more than one);
+                advance i until uncovered, compare to min
+                ,uncovered - 1 is distance,
 
                 advance j until covered, 
                 advance i, until uncovered and so on, 

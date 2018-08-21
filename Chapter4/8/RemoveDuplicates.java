@@ -2,7 +2,7 @@
 /*
     Problem: Given a sorted linked list,  delete duplicates
 
-    Solution: Set two Node variables, last/previous = start, value = start.data and current = start + 1
+    Solution: Set two Node variables, last/previous = start, value = start.data and current = start.next
 
     iterate through current, if it's greater than value :
                         1) set link of last to current;

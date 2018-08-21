@@ -2,7 +2,10 @@
             e.g. "abab" can be "abba"
 
     Solution: Store character counts on hashtable;
-                if length is odd, allow only 1 odd;
+                there can only be 1 character that's odd numbered;
+
+                length doesn't matter because if there's an even lenght,
+                there must be at least 2 odds;
 
                 Space O (C), Time O(N), since there area only 240 characters max;
             where c is number of distinct chars
@@ -20,12 +23,6 @@ public class Pallindrome {
         boolean result = true;
 
         HashMap <Character, Integer> counts = new HashMap<Character, Integer>();
-
-        int is_odd = 1;
-
-        if (input.length() % 2 == 0){
-            is_odd = 0;
-        }
 
         for (int i = 0; i < input.length(); i ++){
             if (counts.get(input.charAt(i)) == null){
@@ -49,7 +46,7 @@ public class Pallindrome {
             }
         }
 
-        if (odd > is_odd){
+        if (odd > 1){
             return false;
         } else {
             return true;

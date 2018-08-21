@@ -1,25 +1,56 @@
 /*
-    Problem: given a maxHeap array,
+    Problem: given a max heap represented as an array
              Extract the k largest elements;
+           e.g.{ 561, 314, 401, 28, 156, 359, 271, 11, 3};
+                children are 2n+1 2n + 2
 
-     
+                prime stack with 561;
+
+                
+
+
+           561  
+           / \
+        314    401 
+        / \    / \
+      28 156 359 271
+    /\
+   11 3
+
     Solution: Iterate through maxHeap level by level;
     
-        load first level into a stack;
-            while level isn't empty:
-                Initialize next_level stack;
-                while level isn't empty:
-                        pop level
-                        if lower than k iterations, load
-                        input into heap, while loading children
-                        to next_level stack,
+                prime stack with 561;
 
-                        if higher than k iterations, 
-                        if current is lower than min heap, do nothing
-                        else, remove lowest heap, add current input 
-                            add its children to next level stack;
-                level = next_level;
+                
 
+
+           561  -->  1) prime into stack
+           / \
+        314    401 --> 1)load into next stack 
+        / \    / \
+      28 156 359 271
+    /\
+   11 3
+
+    while (level_stack isn't empty){
+        current= stack.pop()
+
+        if (min_heap isn't full){
+            add current to min_heap;
+            put children into next_stack;
+        } else {
+            compare with min of heap,
+                if (more){
+                    poll heap,
+                    add current to heap
+                    load children into next_stack;
+                }
+        }
+
+        stack = next_stack
+    }
+       
+  
 
         Space Complexity O(K), time complexity, O(K Log K) 
         
@@ -87,7 +118,7 @@ public class LargestK{
 
                     int min = min_heap.peek();
 
-                    if (parent > min) {
+                    if (parent >= min) {
                         min_heap.remove();
                         min_heap.add(parent);
                     

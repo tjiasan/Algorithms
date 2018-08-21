@@ -2,7 +2,7 @@
     Problem: Apply permutation of a certain order without using O(n) space;
 
     Solution: 1) If same array types, override the order array; (if you don't care about preserving it in memory)
-              2) Find previous location of previously swapped arrays time complexity (O (n^1.5)) (preserves order in memory);
+              2) Find previous location of previously swapped arrays time complexity (O (n^1.5)) (preserves order in memory); (if order greater than or equal, swap , if less find prev)
               3) Destructive in memory both arr and order; Complexity (O(n));
                 ( forward swaps don't care),
                 (backward swaps: find location of previous (use order array), swap, override order[i] with location swapped. works because

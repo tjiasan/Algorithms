@@ -11,6 +11,11 @@
                 hashmap [number] set to i;
                 and hashmap [i] = hashmap[number];
 
+                OR
+
+                generate a random permutation order
+                grab the first k numbers;
+
 */
 import java.util.HashMap;
 import java.util.Random;

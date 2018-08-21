@@ -2,7 +2,16 @@
 Problem: do all permutation of an array
 
 Solution: 
-    perform nested calls to do all possible swaps combination
+    perform nested calls to do all possible swaps combinations
+
+    permute (arr[], iteration, finish){
+        for (int i = iteration; i <finish; i++){
+            this.swap(iter, i);
+            this.permute(arr, iteration + 1, finish);
+            this.swap(iter,i);
+        }
+    }
+
     
     e.g. 3 in array
     swap (0, 0)  --> swap (1, 1) --> first result

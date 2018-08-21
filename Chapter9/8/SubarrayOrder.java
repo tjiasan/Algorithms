@@ -3,7 +3,10 @@
             Give the shortest subarray, where Q is covered in order;
 
 Solution: Since the elements is distinct, 
-          use hashtable to keep track of what the order is,
+          use hashtable to keep track of what the order is while iterating through the text,
+
+          when encounter first, write down min,
+          when finished, write down max, reset to zero
 
           if mismatch order, 
             invaliate and restart at zero;

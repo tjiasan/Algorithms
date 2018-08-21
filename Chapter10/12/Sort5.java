@@ -14,10 +14,10 @@
 
                 largest = largest of subarray;
 
-                2nd largest is either 2nd of largest, or 1st of 2nd largest subarray
+                2nd largest is either 2nd of largest, or 1st of 2nd largest subarray (1 step away)
 
                 3rd is either 3rd of largest subarray, 2nd of 2nd largest, or 1st of 3rd largest subarray
-
+                (2 steps away);
                 make a subarray from all possiblities, and make a sort5 call;
                 
 */

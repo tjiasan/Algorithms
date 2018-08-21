@@ -2,7 +2,7 @@
 
     Knuth-Morris-Pratt
 
-    1) Preprocess string to get prefix matches;
+    1) Preprocess search string to get self prefix matches;
     2) use knowledge of these matches to reset naive search to
        known location if mismatch;
 

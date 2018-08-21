@@ -2,6 +2,7 @@
     Problem: given earth is at {0, 0, 0},
 
             compute the closest stars to earth;
+            while only iterating through each star once;
     
     Solution: preload max-heap with k stars;
 

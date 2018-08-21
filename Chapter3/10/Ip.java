@@ -14,7 +14,7 @@ import java.util.*;
 public class Ip {
 
     public String [] getValid(String input, int offset, int  iteration){
-    
+     
         List<String> interim_res = new ArrayList<String>();
      
         int max;

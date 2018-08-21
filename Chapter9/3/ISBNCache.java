@@ -11,8 +11,8 @@
 
             lookups/updates reorders node to the very end:
                 1) lookup node to be updated in O(1) time;
-                2) previous setNext to Next, NExt setPrevious to previous;
-                3) end setNext to updatedNode, updatedNode setPrevious to end
+                2) previous setNext to Next, NExt setPrevious to previous; (deletion)
+                3) end setNext to updatedNode, updatedNode setPrevious to end (insert at end)
                 4) end = updatedNode;
 
             

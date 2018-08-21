@@ -6,7 +6,7 @@
         H L O  O L
            L    R
 
-        translates to WEDHLOOLLR  
+        translates to EWDHLOOLLR  
 
     Solution : if k is even, belongs to middle;
                 if you add k + 3, it's top if it's modulo by 4 equals 0;

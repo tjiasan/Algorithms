@@ -47,7 +47,7 @@ public class Multiply {
             int counter1 = 0;
             for (int n = a.length -1; n >= 0; n--){
                int multiply = a[n] * b[i];
-               int offset = counter + counter1;
+               int offset = counter + counter1;// calculate power 10 of result
 
                int [] add = new int[offset + 2];
                Arrays.fill(add, 0);

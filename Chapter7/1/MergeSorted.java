@@ -40,7 +40,7 @@ public class MergeSorted {
         PriorityQueue<int[]> min_heap = new PriorityQueue<int []> (input.length, compare);
 
         for (int i = 0; i < input.length; i ++){
-            int [] data = { input[i][0], i, 0 };
+            int [] data = { input[i][0], i, 0 }; // element, array_index, location_index
             
             min_heap.add(data);
 
@@ -56,7 +56,7 @@ public class MergeSorted {
             int [] removed = min_heap.poll();
             result[i] = removed[0];
 
-            int next = removed[2] +1;
+            int next = removed[2] + 1;
 
             if (input[removed[1]].length > next){
                 removed[2] = next;

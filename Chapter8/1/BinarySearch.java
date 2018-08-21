@@ -13,10 +13,10 @@ Solution : force worst case scenario every time
             Complexity O (log n);
 
  Variant 1: find the first occurance greater:
-            Solution, force worst case:
-            if less or equal set left,
+            Solution, force worst case every time:
+            if less, set left,
             else set right, 
-            solution is index + 1 or right; O log(n)
+            solution is right index; O log(n)
             
  Variant 2: check for local minimum at i,
             Solution, check left check right? O(1)
@@ -28,7 +28,7 @@ Variant 3 : get the interval for fisrt and last occurance;
             copy vars
             then do a first occurance algo, set r1 = mid, l1 = last l , binary search to dist 1 
             and last occuranc algo, set l2 = mid, r2 = last r, binary serch to dist 1,
-
+  
 
 Variant 4: find prefix in sorted strings;
             Solution, 

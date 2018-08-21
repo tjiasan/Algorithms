@@ -4,6 +4,26 @@
 
     Solution: reverse the second half of the sublist, and iterate through both list
                 at the same time;
+
+
+                reversing algo
+
+                revese;
+                reverse_next = reverse.next;
+
+                loop {
+                  next = reverse_next.next;
+                  reverse_next.next = reverse;
+
+                  reverse = reverse_next;
+
+                  if(not null){
+                      reverse_next = next;
+                  }
+                }
+        
+
+                unreverse the list if want not destructive
                 Complexity O(N) time O(1)space
 */
 /* Class Node */

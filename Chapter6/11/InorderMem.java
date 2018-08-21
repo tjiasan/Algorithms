@@ -15,20 +15,25 @@
     variant : pre-order + postorder with O(1) and parent;
 
         pre-order: 1) if left, go left, visit,
-                   2) if left null, and right, go right,
-                   2) if both bottom are null, go up until right unvisited child; 
+                   2) if left null, and right not null, visit right
+                   2) if both bottom are null, go up until right unvisited child; i.e. current != parent.right, and visit right
 
-    post-order: 1) ignore left, ignore right,
-                2) go up parent,
-                
-                3) and if it's left children of parent,
-                    try to go right children, 
-                    and  go prioritize  left until both children are null,
+    post-order: primary: all the way left, all the way right, 
+                        visit
 
-                    if there's no right children or current was children
-                    then it is successor, 
+                        ignore children, wheter null or otherwise!!
+               
+                     if current = parent.left;
+                     go up parent, 
+                     go right, if parent.right = null visit parent;
+                     if parent.right not null move right,
+                        then follow algo: if left move left first, else move right until both are null; visit;
 
-                 2) 
+                     if current = parent.right;
+                     go up parent, visit
+                   
+                    if parent= null, done;
+    
 
 */
 
@@ -136,6 +141,17 @@ public class InorderMem {
 
 
     }
+    
+    void postorder (Node head) {
+        if (head == null){
+            return;
+        }
+        
+        this.postorder(head.getLeft());
+        this.postorder(head.getRight());    
+        System.out.println(head.data);         
+
+    }
 
 
     public static void main (String args[]){       
@@ -189,6 +205,8 @@ public class InorderMem {
 
         
         inorderMem.traverse(head);
+        System.out.println(" ");
+        inorderMem.postorder(head);
  
     }
 }

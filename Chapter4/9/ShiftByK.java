@@ -2,7 +2,14 @@
 /*
     Problem: Givven a single linked list, shift values by k amount, anything that spills over goes to the beginnign
 
-    Solution: 
+    Solution: record start, 
+              iterate k amounts, 
+              last next to null and  record new start,             
+
+              iterate through new start until node.next == null,
+              set node.next = start.
+
+              return new_start;
             
 */
 /* Class Node */

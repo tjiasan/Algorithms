@@ -1,3 +1,4 @@
+import java.util.Arrays;
 /* 
 Problem: Search engine impelementation,
         retreive documents that match the set of words in query by maintaining
@@ -28,6 +29,7 @@ Solution: iterate through two lists simultaneously;
         */
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Intersection {
 
@@ -91,7 +93,7 @@ public class Intersection {
             resultArray[k] = result.get(k);
         }
 
-
+        System.out.println(Arrays.toString(resultArray));
         return resultArray;
     }
 
@@ -106,7 +108,7 @@ public class Intersection {
         int [] intersection = intersect.find(arr1, arr2);
 
 
-
+       
     }
 
 }

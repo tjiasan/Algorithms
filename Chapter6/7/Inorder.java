@@ -18,6 +18,7 @@ class Node {
 
     public Node (){
         left = null;
+        
         right = null;
         data = 0;
     }

@@ -25,6 +25,7 @@ public class Convert {
         int begin = 0;
         int end = res.length - 1;
         char temp;
+        //reverse
         while(end > begin){
             temp = res[begin];
             res [begin] = res[end];

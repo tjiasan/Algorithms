@@ -113,14 +113,14 @@ public class ListSort{
                 if(prev != null){
                     prev.next = ins;
                 } 
-                previous = ins; //set previous as inserted
+                prev = ins; //set previous as inserted
                 ins = ins.next; //iterate forward right list
-                previous.next = ptr; //link previous to current;
+                prev.next = ptr; //link previous to current;
 
                 ptr = ptr.next; //iterate left list forwrd
 
             } else {
-                previous = previous.next;
+                prev = prev.next;
                 ptr = ptr.next;
             }
         }

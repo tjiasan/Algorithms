@@ -78,7 +78,7 @@ class Node {
 
 
 public class KInorder {
-
+    //order is k
     int recursive (Node head, int order, int visited) {
        
         System.out.println( "traversing: " + head.getData());

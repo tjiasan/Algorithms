@@ -1,20 +1,33 @@
 /*
-   Problem: Given two linked lists (single), One of the linked list may link to the other.
+   Problem: Given two linked lists (single) , One of the linked list may link to the other.
             Figure out if two linked lists connect, and if so where;
-            One or Both may have cycles;
+            One or Both may have cycles!!!;
+
+            if both have cycles all entry points are valid
 
     Solution: Figure out if either or have cycles;
 
-            if both have cycles = must intercept;
+           
 
             if one has cycle = doesn't intercept;
 
             if both has no cycle = compare end, do the same as previous question;
 
+            if both have cycles, (modification of cycle tests):
+                - calculate loop length for L1
+                - record one node, and see if it exists in the other list, if same node then same cycle
 
-            Two subcases where both have cycles:
-                1) if root of cycles differ, both answers valid
-                2) if root of cycles the same, use previous question where end is the root;
+
+            Two subcases where both have cycles and overlap:
+                1) entry points into cycles are differ
+                2) lists merge before cycle
+
+            to figure out entry points :
+                iterate the list Cycle length apart  , both pointers will eventually get to the same adress  
+
+            if they're the same for both lists, 
+                run previous solution to entry point, 
+                to get merging point    
 
 */
 

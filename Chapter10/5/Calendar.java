@@ -18,14 +18,21 @@
         sort array by start;
 
         ITERATE THROUGH ARRAY
-            find where the end of the current iteration fits
-            into the future array using binary search, 
+            Find k, 
+            where A[k][0] (start) is equal to or below A[i][1](end) ;
+            using binary search
+            put k in hash table add 1 if increased;
 
-            put deletion value in hash table;
 
+            if (hashtable (i)){
+                concurrency -= events ending;
+            }
 
-            add levels ++;
-            subtract all that ends for current iteration from hashtable;
+            increase concurrency; 
+           
+            if (concurrency > concurrency_max){
+                record;
+            }
 
 
         Space O (N) max, Time O(nlogn + nlog(M))

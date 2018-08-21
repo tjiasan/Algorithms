@@ -69,10 +69,10 @@ public class Base  {
 
             input_integer /= output_base;
 
-            result += digit;
+            result += digit;//reverse later
         }
 
-
+        //reverse it because started at end
         char[] res = result.toCharArray();
         int begin = 0;
         int end = res.length - 1;

@@ -13,15 +13,12 @@ public class Duplicates {
         int duplicates = 0;
         int uniques = 1; //keep track of position
         int current = arr[0];
-
+        // start at 1
         for (int i = 1; i < arr.length; i++){
 
             if (arr[i] > current) {
-                current = arr[i];            
-
-                if (i != uniques) {
-                    arr[uniques] = arr [i];
-                }// else leave alone
+                current = arr[i];           
+                arr[uniques] = arr[i];            
 
                 uniques++;
             } else {

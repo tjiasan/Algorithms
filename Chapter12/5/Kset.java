@@ -1,4 +1,27 @@
+/* return k size subset of an array
 
+    Solution: 
+
+        base cases: 
+            size == arr;
+            return arr;
+
+            size == 1;
+            return int[][] result = int[arr.size][1];
+
+
+            if size in between:
+
+                A[0] in combination with result size-1 smaller;
+
+                AND
+
+                recursion of array smaller excluding A[0];
+
+
+
+
+*/
 import java.util.Arrays; 
 public class Kset{
 
@@ -35,7 +58,7 @@ public class Kset{
 
         int[][] subresult = this.combine(arr[0], this.subset(subarray, size - 1));        
 
-        int[][] result = this.concatenate (subresult, this.subset(subarray1, size));
+        int[][] result = this.concatenate (subresult, this.subset(subarray1, size));//for triggering first if
 
        
         return result;

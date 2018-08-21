@@ -3,7 +3,10 @@ Problem: Implement a stack with a heap
 Solution: use a max heap,
 initialize max heap to zero;
 
+current_max is analogous to index;
 add and int array with [current_max, data],
+and increment current_max/index;
+
 
 */
 

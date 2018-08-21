@@ -1,5 +1,5 @@
 /* Problem:
-    Given an array that increases and decreases k times, 
+    Given an array that have sections which increases and decreases k times, 
     design an efficient algorithm to sort;
 
     Solution:
@@ -8,11 +8,16 @@
     add to min heap inflection points ascending (with start, stop, ascending);
     add to min heap inflection points descending (with start, stop, descending);
 
-    when processing heap, if ascending is removed,
-    increase start, and re add to heap
-    else 
-    decrease start, and re add to heap
-    when start goes over stop, do not add;
+    normalize everything to ascending by processing descending backwards;
+
+    when processing heap, 
+    if (ascending) {
+        start ++
+    } else {
+        start --;
+    }
+
+    re-add to heap if section not done;
 
 
     Complexity O(nlogk), space o(k), where k is the amount of inflection points;
@@ -55,10 +60,10 @@ public class SortIncDecArr {
         int [] result = new int[input.length];
 
         MinComparator  minComparator = new MinComparator();
-        MaxComparator  maxComparator = new MaxComparator();
+  
 
         PriorityQueue<int[]> min_heap = new PriorityQueue<int[]>(11, minComparator);
-        PriorityQueue<int[]> max_heap = new PriorityQueue<int[]>(11, maxComparator);
+      
 
         boolean ascending = true;
         int val = input[0];

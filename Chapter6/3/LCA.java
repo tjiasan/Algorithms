@@ -121,15 +121,14 @@ public class LCA {
 
         int total = left_sum + right_sum;
 
-        if (right_sum == 1 && left_sum == 1){
-            ancestor2 = head;
-            System.out.println(ancestor2.getData());
-        }
+   
         if (head == first || head == second){
             total += 1;
-            if (sum == 2){
-                ancestor2 = head; // common ancestor is the node situation
-            }
+        }
+
+        if (total == 2){
+            ancestor2 = head; // global var
+            System.out.println(ancestor2.getData()); // LCA
         }
         
         return total;

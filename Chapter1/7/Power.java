@@ -5,8 +5,8 @@
 
                 e.g. problem : 2 ^ 7; 7 in binary is 111; 
                     7 is decomposed into   2^2 +2^1 + 1  OR 4 + 2 + 1;
-                and 2^3 decomposed into  2^4 * 2^2 * 2^1;
-                thus to get form 2^1 to 2^2, square the same number;
+                and 2^3 decomposed into  2^2 * 2^1;
+                to get from 2^1 to 2^2, multiply 2^1 by itself;
 */
 
 public class Power {

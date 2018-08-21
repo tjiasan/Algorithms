@@ -2,6 +2,10 @@
     Problem: generate a random permutation order;
 
     Solution: Use same solution as 12; Pick a number
+
+    initialize array 1 to k, 
+    pick a number 1 to i , 
+    swap i with k 
 */
 import java.util.Arrays;
 import java.util.Random;

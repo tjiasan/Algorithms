@@ -10,26 +10,35 @@ Problem: Given a text and and array of strings,
     use rolling hash algo to calculate matches;
 
     use 2 hashmap:
-        1) Stores hash to offeset counts (iteration, counter)
-        2) Stores offset to sum and history (a linkedList) of all encountered words;
+        1) Stores hash integer to boolean (checking)
+        2) Stores offset to start and end;
 
 
     iterate through text while cycling offsets :
-        for each offset:
-        if found match:
-            find which offset, and iteration;
-            get 2nd hash to get offset;
-            if iteration mismatch, set to current iteration;
-            and count to 1;
+        if (match){
+            get offset specific data;
 
-            if count is over amount allowed(){
-                remove first through through history until same as hash,
-                subtracting the counter and sum;
+            if (null){
+                start = i - word_length;
+                end = i;
+            } else {
+
+                if (end + length < i){
+                    reset
+                     start = i - word_length;
+                     end = i;
+                } else {
+                    end = i;
+                   
+                }     
             }
-        
-        mismatch:
-            increase iteration;
-            set history to empty;
+
+            put data in hashmap;
+            compare to max;           
+        }
+
+        offset ++; or reset to 0;
+        next rolling_hash;
 
 
 
@@ -46,33 +55,11 @@ import java.util.HashMap;
 import java.util.LinkedList;
 
 class Node {
-
-    public int order;
-    public int hash;
-    public String query;
-    public int count;
-    public int [] [] offset;
-
-
-    public Node () {
-        query = "";
-        order = 0;
-        hash = 0;
-        count = 0;
-    }
+    int start;
+    int end;
 }
 
-class NodeRun {
-    public int iteration;
-    public int sum;
-    public LinkedList<Integer> history;
 
-    NodeRun(){
-        sum  = 0;
-        iteration = 0;
-        history = new LinkedList<Integer>();
-    }
-}
 
 
 public class Decomposition{
@@ -100,118 +87,67 @@ public class Decomposition{
 
     public void decompose (String text, String[] words){
       
-        HashMap<Integer, Node> counts = new HashMap<Integer, Node> ();
+        HashMap<Integer, Boolean> words_hash = new HashMap<Integer, Boolean> ();
+        HashMap<Integer, Node> running_offset = new HashMap<Integer, Node> ();
 
-        int sum = 0;
-        int length_0 = words[0].length(); //all same length
+        int word_length = words[0].length(); //all same length
 
         for (int i = 0; i < words.length; i ++){
-            if (counts.get(this.hash(words[i])) == null){
-                Node input = new Node();
-
-                input.order = i + 1;
-                input.offset = new int [length_0] [2];
-                input.count = 1;
-                sum += input.order;
-
-                counts.put(this.hash(words[i]), input);
-            } else {
-                Node exist = counts.get(this.hash(words[i]));
-                sum += exist.order;       
-                exist.count ++;      
-            }      
+            words_hash.put(this.hash(words[i]), true);
         }
-  
         //rolling hash
        
-        int rolling_hash = this.hash(text.substring(0, length_0));      
-
-        int offset = 0;
-        int found = -1;
-        HashMap<Integer, NodeRun> running_offset = new HashMap<Integer, NodeRun> ();
+        int rolling_hash = this.hash(text.substring(0, word_length));      
+        int max = 0;
+        int max_start = 0;
+        int max_end = 0;
+        int offset = 1;
+        
       
-        for (int i = words[0].length() - 1; i < text.length(); i ++){
- 
-            if (counts.get(rolling_hash) != null){    
-                Node count = counts.get(rolling_hash);   
-                NodeRun running =  running_offset.get(offset);  
-                int order = count.order;                    
-                
-                if (running == null){
-                    running = new NodeRun();
-                    running_offset.put(offset, running);
-                } 
-                
-                int iteration = running.iteration;
+        for (int i = word_length - 1; i < text.length(); i ++){
 
-                if (count.offset[offset][0] == iteration){
-                    count.offset[offset][1] ++;
-                } else {
-                    count.offset[offset][0] = iteration;
-                    count.offset[offset][1] = 1;
-                }
+            if (words_hash.get(rolling_hash) != null){
+                Node last = running_offset.get(offset);
 
-                running.history.addLast(rolling_hash);
+                if (last == null){
+                    last = new Node();
 
-                //invalid too many encounters of the same word; //special rare case
-                if (count.count < count.offset[offset][1]){
-                    while (true){
-                        int remove_hash = running.history.removeFirst();
-                        Node cnt = counts.get(remove_hash);
-                        cnt.offset[offset][1] --;
-
-                        running.sum -= cnt.order;
-
-                        if (remove_hash == rolling_hash){
-                            break;
-                        }
-                    }
-
+                    last.start = i - word_length;
+                    last.end = i;                
 
                 } else {
-                    running.sum += order;
+                   
+                    if (last.end + word_length < i){
+                        last.start = i - word_length;
+                        last.end = i;    
+                    } else {                        
+                        last.end = i;                
+                    }       
+
                 }
 
-                if (running.sum == sum){
-                    System.out.println("Found at" + i);
-                    break;
-                }
-            } else {
-                NodeRun running =  running_offset.get(offset);  
-                if (running != null){
-                    running.iteration ++;
-                    running.sum = 0;
-                    running.history = new LinkedList<Integer>();
+                running_offset.put(offset, last);
+
+                if (last.end - last.start > max){                       
+                    max = last.end - last.start;
+                    max_start = last.start;
+                    max_end = last.end;
                 }
             }
-
-            offset++; 
-            if (offset == length_0){
-                offset = 0;
+            if (i < text.length() - 2){
+                rolling_hash = this.roll(rolling_hash, text.charAt(i + 1), text.charAt(i - word_length + 1), word_length);
             }
+           
 
-            //calc next rolling hash
-            if (i + 2 > text.length()){                    
-                break;
-            } else {
-                rolling_hash = this.roll( rolling_hash, (int) text.charAt(i + 1), (int) text.charAt(i - length_0 + 1), length_0);
-                continue;
-            }          
+            offset ++;
+            if (offset > word_length){
+                offset = 1;
+            }
 
         }
 
-
-        if (found > 1){
-
-            int min = found - words.length * length_0;
-
-            String found_string = text.substring(min + 1, found + 1);
-
-            System.out.println(found_string);
-
-        }
-
-
+        System.out.println(max);
+        System.out.println(text.substring(max_start + 1, max_end +1));
 
     }
 

@@ -4,13 +4,16 @@
 
     Solution: recursive algorithm:
                 Input: node left & node right;
-                
+
+
+                if both null, return true;
+                if one is null, return false;
                 if left.data != right.data return false;
 
-                if (left.leftchild or right.rightchild)
-                    get recursive boolean of (left.leftc, right.rightc);
                 
-                same for left.rightchild;
+                get recursive boolean of (left.leftc, right.rightc);
+                
+                and boolean of (left.rightchild, right.leftchild);
 
                 return left boolean && right boolean;    
                 
@@ -67,7 +70,11 @@ public class BinarySymmetry {
 
     public boolean check_symmetry(Node left, Node right){
 
-        if (left == null || right == null){
+        if (left == null && right == null){
+            return true;
+        }
+
+        if ((left == null && right != null) || (right == null && left != null)){
             return false;
         }
 
@@ -75,16 +82,13 @@ public class BinarySymmetry {
             return false;
         }
 
-        boolean left_s = true;
-        boolean right_s = true;
+        boolean left_s;
+        boolean right_s;
 
-        if (left.getLeft() != null || right.getRight() != null){
-            left_s = this.check_symmetry(left.getLeft(), right.getRight());
-        } 
-
-        if (left.getRight() != null || right.getLeft()!= null){
-            right_s = this.check_symmetry(left.getRight(), right.getLeft());
-        }
+      
+        left_s = this.check_symmetry(left.getLeft(), right.getRight());    
+        right_s = this.check_symmetry(left.getRight(), right.getLeft());
+    
 
         return left_s && right_s;
     }

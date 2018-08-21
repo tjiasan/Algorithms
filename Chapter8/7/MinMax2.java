@@ -2,6 +2,7 @@
                 in less than 2 (n -1) comparisons
     Solution: Do a moving window of 2 size; initialize with 1 cycle;
                 e.g. {1,2,3,4}
+                prime min max with first window comparison;
 
                 window 1 : [1, 2]
                 since 1 < 2,  compare 1 to min, compare 2 to max

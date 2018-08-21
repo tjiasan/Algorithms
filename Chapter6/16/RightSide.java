@@ -18,12 +18,15 @@
         set the right side accordingly
 
         for a perfect binary tree, set the first getRight side for level 1;
+        Since current level have a getRight()previously set, no need for a stack;
+        thus, save leftmost children for next iteration,
+        keep setting children's right until getRight() == null;
 
-        then, iterate through parent left to right:
-                Alternate: 1) same child, set left child to right side
-                           2) different child, set right child, to left child of getRightside,
-                                shift parent to the right side
-          keep going down until children are null;                      
+        more precisely: 
+               1) same child, set left child to right side
+                2) different child, set right child, to left child of getRightside,
+                    shift parent to the right side
+                         
 */
 
 

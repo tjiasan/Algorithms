@@ -10,13 +10,13 @@
 
          Compute the exterior: 314, 6, 271, 0, 17, 1, 7   
          
-     Solution: do 4 traversals:
+     Solution: do 4 traversals: ()
             1) traverse left, get root to leaf for all left in a Queue,
                 while adding, Any right branch to a stack
             2) Process  Stack, get all the leafs, andd add to left queue,
-            3) traverse right, add all to a right queue, while adding any left branch
-                to a queue
-            4)  Process the right queue, adding all leafts to the left queue,
+            3) traverse right, add all to a right stack, while adding any left branch
+                to a  right_queue
+            4)  Process the right_queue, adding all leafs to the left queue,
             5) Add right stack to  left queue
             6) trasnform to array and return;
             
@@ -24,6 +24,16 @@
        a combo of iterative and recursive; this is because space for result isn't counted,
        length of leaf stack/queue is the same as result, so no extra space used;     
 
+
+       OR lazier way and less efficient:
+       1) go left until null to get left side;
+
+       2) do a pre-order traversal to get all leafs (as previous question) to get all leafs (trim first and last)
+
+       3) go right until null to get right side;
+
+       4) combine;
+       Complexity O(N + H), space O(H);
    
 */
 

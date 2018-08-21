@@ -5,7 +5,7 @@
                  {8, 16, 24};
 
                  find a set of integers (ond from each array), such that if an interval were to be made, (max - min) or range is the smallest
-
+                in this case it would be {15,15, 16};
     Solution:
             Book solution:
                 Construct 1 BSTs, 

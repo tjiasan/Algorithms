@@ -1,26 +1,31 @@
 
 /*
-    Problem: Given an array with a cycle,
+    Problem: Given a sorted array with a cycle,
             detect the min;
 
 
     Solution: find the cycle shift;
-    
+
+
+
+
             Divide and conquer:
-                    1) trim spillovers, such that start != end
+                    1) find the location where arr[index1] is > arr[index2]
                     2) logic :
-                         if (start <= end )// no cycle;
+                         if (start <= end )// no cycle; return -1; (terminate deep recursion early)
 
-                         if right - left is greater than 1
-                            for left to mid, recurse
-                            for mid to end, recurse
+                         cycle detected;
+                            recurse left subarray (start to mid);
+                            recurse right subarray (mid to end);
 
-                         else end is cycle;
-                         
-                      if happen to break at cycle left and right is -1;
+                      if both left and right have no cycles, i.e. both -1
                       return mid +1;
                       
-                      else keep returning left or right if it's not -1;
+                      else deep recurse return;
+
+                      if left or right not -1, 
+                      return answer;
+
 
                  
                       Complexity: average O (logn),

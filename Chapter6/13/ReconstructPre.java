@@ -12,6 +12,42 @@ encountered nulls, reconstruct the array
                 Complexity: O(N), Space O(B); //space storing 1 integer for every leaf;
 
 
+    Solution V2: 
+            Going iteratively from 0;
+
+            Head = A[0];
+            current = A[0];
+
+            all nodes have left = placeholder node, and right = placeholder node(denodes isn't set) and parent field
+
+            iterating through the array:
+
+            if A[i] isn't null:
+            if (current.left isn't set){
+                  set current.left, and current.left.parent = current;
+                  current = current.left;
+                }
+
+            else  {
+                set current.right, and current.right.parent = current;\
+                current = current.right;
+            }
+
+            if A[i] is null {
+                if (current.left isn't set){
+                    current.left = null;
+                    continue;
+                } else {
+                    current.right = null;
+                    while(current.parent.right isn't set){
+                        current = current.parent;
+                    }
+                }
+            }
+
+
+
+
 
 
 */

@@ -6,9 +6,9 @@
 
     Solution:  int [] arr = {6, 2 , 1, 5, 4, 3, 0}; 
               1) Find the pivot point (n < n+1), going from right to left where right number is larger than the left
-                 pivot is at 1; 
+                 pivot is at 1; (what to swap with)
               2) swap the pivot point with the smallest encountered, but larger than arr[n];
-                swap with 3
+                swap with 3 (second number to swap with)
                 {6, 2, 3, 5, 4, 1, 0}
               3) The prefix is the same, since the suffix is in decreasing order, the next smallest would be the suffix in increasing order (i.e. reverse the swapped suffix);
                {6, 2, 3, 0, 1 ,4, 5}

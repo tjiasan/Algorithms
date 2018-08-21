@@ -2,11 +2,13 @@
 Problem: Implement a locking algorithm
             Node has locked/unlocked
 
+            if descendants or parents is locked, cannot lock;
+
 Solution: O(1) to check locked, get node
 
-            O(H) to lock, O(H) time to check parent is locked, O(H) time to set to 2;
+            O(H) to lock, O(H) time to check parent is locked, O(H) time to increase parent_lock
 
-            O(H) to unlock, unlock all parents to root (set to 2 to 0);
+            O(H) to unlock, to decrease parent_lock;
 
 */
 
@@ -18,7 +20,8 @@ class Node {
     protected Node left;
     protected Node right;
     protected Node parent;
-    public int locked;
+    public int locked; // lock
+    public int parent_lock;// unable to lock by descendants
 
     public Node (){
         left = null;
@@ -85,11 +88,11 @@ public class Locking {
     }
 
     public boolean lock (Node n){
-        if (n.locked == 0){
+        if (n.locked == 0 && n.parent_lock == 0){
             Node check = n;
             while (check.getParent() != null){
                 check = check.getParent();
-                if (check.locked == 1){
+                if (check.locked > 0){
                     return false; //parent is locked
                 }
             }
@@ -97,7 +100,7 @@ public class Locking {
             n.locked = 1;
             while (n.getParent() != null){
                 n = n.getParent();
-                n.locked = 2; //prevent locking of ancestors
+                n.parent_lock += 1; //prevent locking of ancestors
             }
 
             return true;
@@ -118,7 +121,7 @@ public class Locking {
 
         while (n.getParent() != null){
             n = n.getParent();
-            n.locked = 0;
+            n.parent_lock -= 1;
         }
         
         return true;

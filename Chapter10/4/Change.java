@@ -11,11 +11,13 @@
 
    Solution: Sort the array in ascending order;
 
+            the next coin must be able to replace partial or full amount of the sum of all previous coins + 1, 
+            or else, prev sum + 1 is impossible;
 
             iterate through the coins:
 
 
-            if (there isn't a 1, ){
+            if (there isn't a 1 at A[0], ){
                 return 1;
             }
 

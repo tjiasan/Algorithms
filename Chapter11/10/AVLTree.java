@@ -4,7 +4,58 @@
 
     Solution:
      see below
+
+
+     Insertion:     
+            1) Compare with head
+            2) less recurse left child, more recurse right child
+            3) after recursion, update heights
+            4) current height is max of left || right children plus 1;
+
+            5) rebalance:
+                if skewed to left :
+                    key was inserted to left : left left case: right rotate
+                    key was inserted to right: left right case: left rotate left child, right rotate
+
+                if skewed to right: 
+                    key was inserted to right : right right case; left rotate
+                    key was inserted to left:   right left case;   right rotate right child left rotate
     
+        Deletion:
+            iterative:
+            Use a stack, load previous parents
+            while finding the key,
+            
+            when key found,
+            if key has no children:
+
+            set parent = null
+
+            if key has one children:
+            set parent's children to key's children;
+
+            if key has two children:
+                successor is key's
+                right subtree minimum
+                i.e. go all the way left
+                while adding parent to stack
+
+                relink any successor right children
+                to sucessor's parent;
+
+                set parent children to successor and successor to key's children;
+
+             Update heights and balance:
+             
+             go thourgh stack, 
+             update heights
+
+             balance!
+             
+             more on left: right rotate; (if left child is unbalanced (right rotate))
+
+             more on right: left rotate;
+                
 
 */        
 

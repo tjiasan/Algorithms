@@ -4,14 +4,23 @@
 
 
     Solution :
-            Use hashtable to keep track of position;
+            Use hashtable to keep track of text positions;
 
-            if encounter null or less than currently tracked,
+            if text position in hashtable is null or less than the global minimum,
+            override in text position in hashtable;
 
-            calculate distance (i - 1) to min,
-            set min to prev repeat + 1;
-            
-            put position in hashtable;
+            else {
+                //duplicate detected
+                calculate distance (i - 1) - global min,
+                compare to the max distance,
+
+
+                set global min to distance the text is previously located in + 1;
+                
+                override in text position in hashtable;
+            }
+
+
 
             Complexity O(N), Space O(N);
 

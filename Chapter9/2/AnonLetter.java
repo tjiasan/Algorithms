@@ -1,5 +1,6 @@
 /*
-    Problem: Given two text inputs, find out if it's possible to write a from characters in b;
+    Problem: Given two text inputs, find out if it's possible to write an anonamous 
+            letter (cutouts from magazine) from a magazine article;
 
     Solution: use a hash table to store character counts in magazine, 
             iterate through letter, subtract counts;

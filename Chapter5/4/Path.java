@@ -8,7 +8,11 @@ normalize ('/abc/def////////') # => '/abc/def/'
 
 Problem: normalize pathnames to their shortest
 
+Solution: 1) empty -- > ignore
+            2) words --> push to stack
+            3) .. --> pop stack
 
+            then reconstruct path from stack
 
 */
 

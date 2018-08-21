@@ -6,6 +6,10 @@
 
               Time complexity O(N);
 
+              return an int, from left and right
+              if (l + r = 0) means leaf;
+              i.e. if (head == null return 0; else return 1)
+
 */
 
 import java.util.LinkedList;

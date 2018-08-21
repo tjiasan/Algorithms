@@ -17,13 +17,23 @@
          twice meaning that 1 is missing; Figure out both;
 
     Solution :
-        Sum of 1 to n-1 is  (n -1) n/2;      
+        unique sum = of 1 to n-1 is  (n -1) n/2 ;    
 
-        unique sums - sum of arr = difference between duplicate and unique;
+        sum or arr = duplicate - missing;
+        unique sums - sum of arr = -duplicate + missing;
 
-        the xor of all values of unique arrays ^ all values of actual arrays = dulicate ^ missing;
+        the xor of all values of unique arrays ^ all xor values of actual arrays = duplicate ^ missing;
 
-        so if ( the xor ^ i == (i + diff)), that's the answer;
+        
+        diff = duplicate - missing;
+        xor = duplicate ^ missing;
+
+        subbing in:
+        xor = duplicate ^ (duplicate + diff);
+        xor ^ duplicate = duplicate + diff;
+
+        iterating through the array: 
+           if ( the xor ^ i == (i + diff)), i is the duplicate;
 
         Complexity O(2N) Space O(1);
 

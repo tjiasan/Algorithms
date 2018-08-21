@@ -76,18 +76,14 @@ public class Preorder {
         Stack <Node> right = new Stack<Node>();
         
         while (true){
-            System.out.println(head.getData());
 
-            if (head.getRight() != null){
-                right.push(head.getRight());
-            }
-
-            while (head.getLeft() != null){
-                head = head.getLeft();
+            while (head != null){
                 if (head.getRight() != null){
                     right.push(head.getRight());
                 }
                 System.out.println(head.getData());
+                head = head.getLeft();
+
             }
 
             if (right.empty()){

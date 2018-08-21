@@ -8,15 +8,11 @@
 
 
     Solution: Use recursion:
-              pass down partial sums, starting from zero
+              pass down partial binaries left and right,
               bitshift partial by 1, and add 1 if data is 1;
+              if leafs are null, print binary, add to global sum;
 
-              if leafs are null, return partial sum;
-
-              if have left, recurse left, vice versa with right;
-
-              with java, could do global variable, and sum if leafs are null;
-              but the sum of left + right should also equal sum of all paths;
+            
 
               Complexity O(N) , space O(H);
 
@@ -70,31 +66,27 @@ class Node {
 
 
 public class SumRootLeaf {
-
-    public int sum (Node head, int partial_sum){
+    public int fin_sum;
+    public void sum (Node head, int partial_sum){
 
         partial_sum <<= 1;
 
         if (head.data == 1){
-            partial_sum += 1;
+            partial_sum ^= 1;
         }
 
         if (head.getLeft() == null && head.getRight() == null){
-            return partial_sum;
+            fin_sum += partial_sum;
+            System.out.println(fin_sum);
         }
 
-        int right = 0;
-        int left = 0;
-
         if (head.getRight() != null){
-            right = this.sum(head.getRight(), partial_sum);
+            this.sum(head.getRight(), partial_sum);
         }
 
         if (head.getLeft() != null){
-            left = this.sum(head.getLeft(), partial_sum);
+            this.sum(head.getLeft(), partial_sum);
         }
-
-        return left + right;
 
 
     }
@@ -122,8 +114,8 @@ public class SumRootLeaf {
         left.setRight(left_child2);
 
 
-        int sum = srl.sum(head, 0);
+        srl.sum(head, head.data);
 
-        System.out.println(sum);
+        
     }
 }

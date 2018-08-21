@@ -3,23 +3,27 @@
     where the queens are non -attacking
 
     Solution: 1) iterate through a row
-              2) for each row, pass through recursively the solution
-                use swaps to save some space
-              
+              2)              
                  initialize the solution (1, 2, 3, 4);
                  where arr[i] = k
                  i = row
                  k = column
 
+                 it's initialized this way because queens cannot be in the same column/row;
+               
+                 iterating through A:
+                 swap A[0] with A[i];
+                 recurse;
+
               3) recursive algorigthm:
-              iterate through previous result while
-              calculating the illegal places, 
-              put illegal places into a hashmap
+                for each iteration:
+                calculate illegal places, for A[iteration -1] (diagonals);
+                put illegal places in hashmap;
 
-              iterate through the remaining "places",
+                   iterate through rest of array for next location:
 
-              if it's not illegal, swap with current iteration location
-              and recuse forward
+                   if not illegal, swap A[iteration] with A[i];
+                   and recurse;
               
 
 
@@ -89,7 +93,7 @@ public class Queen {
                   this.swap(next_copy, iteration, n);
 
                   if (iteration == result.length -1){
-                    System.out.println(Arrays.toString(next_copy));
+                    System.out.println(Arrays.toString(next_copy));//success
                   } else {
                     this.recurse(next_copy, iteration + 1);  
                   }                

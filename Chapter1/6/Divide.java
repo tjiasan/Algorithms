@@ -38,8 +38,8 @@ public class Divide {
 
         while (dividend >= divisor) {            
             int base = this.FindHighestBase(dividend, divisor);   
-            dividend -=  (divisor << base);
-            quotient +=  (1 << base);  
+            dividend -=  (divisor << base);       //i.e divisor * 2 ^ base
+            quotient +=  (1 << base);     // add 2 ^ base
             //System.out.println(divisor << base);           
         }
 

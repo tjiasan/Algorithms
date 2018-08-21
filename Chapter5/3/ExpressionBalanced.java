@@ -1,5 +1,8 @@
 /*
-   Problem:  
+   Problem:  Given " { } []" , see if it's balanced
+
+   Solution: every opening bracket, push into a stack the closing, 
+            if closing bracket enocuntered, pop stack, if not there, then not balanced
 */
 
 class Node {

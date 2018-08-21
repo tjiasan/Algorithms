@@ -31,6 +31,7 @@ public class Powerset{
     }
 
     public int[] [] subset(int[] arr){
+        //base case
         if (arr.length == 1){
             int [][] result = {
                 arr,
